@@ -2,6 +2,7 @@ var MongoClient = require('mongodb').MongoClient
 
 //Private
 var mongoDb;
+var randId = ''+Math.random();
 var randName = 'student-' + randId.substr(2, 4);
 
 function MongoDb() {}
@@ -16,6 +17,9 @@ MongoDb.prototype.connect = function(url) {
       console.log('Unable to connect to MongoDB', error);
       process.exit(1);
     }
+    console.log('MongoDB connected');
+    messageCollection = db.collection('messages');
+    messageCollection.insert({a: 1});
     mongoDb = db;
   });
 };

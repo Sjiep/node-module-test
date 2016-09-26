@@ -4,8 +4,9 @@
 // // Connection URL
 // var url = 'mongodb://localhost:27017/myproject';
 
-// var bar = require('./db');
+var ChatMessages = require('./chat-messages');
 
+var chatMessage = new ChatMessages();
 // console.log(bar);
 
 // // Use connect method to connect to the server
