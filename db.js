@@ -4,29 +4,34 @@ var MongoClient = require('mongodb').MongoClient
 var mongoDb;
 var randName = 'student-' + randId.substr(2, 4);
 
+function MongoDb() {}
 
-
-exports.connect = function(url, done) {
+MongoDb.prototype.connect = function(url) {
   if(mongoDb) {
     console.log('DB is already connected');
     return done();
   }
   MongoClient.connect(url, function(error, db) {
     if(error) {
-      return done(error);
+      console.log('Unable to connect to MongoDB', error);
+      process.exit(1);
     }
     mongoDb = db;
-    done();
   });
 };
 
-exports.get = function() {
+MongoDb.prototype.get = function() {
   console.log(randName);
   return mongoDb;
 };
 
-exports.close = function() {
+MongoDb.prototype.close = function() {
   if(mongoDb) {
     mongoDb.close();
   }
 };
+
+module.exports = exports = new MongoDb();
+
+// http://bites.goodeggs.com/posts/export-this/
+// http://mongoosejs.com/

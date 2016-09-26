@@ -4,9 +4,9 @@
 // // Connection URL
 // var url = 'mongodb://localhost:27017/myproject';
 
-var bar = require('./foo');
+// var bar = require('./db');
 
-console.log(bar);
+// console.log(bar);
 
 // // Use connect method to connect to the server
 // MongoClient.connect(url, function(err, db) {
@@ -28,7 +28,7 @@ console.log(bar);
 //     console.log('Inserted 3 documents into the collection');
 //     callback(result);
 //   });
-  
+
 // };
 
 // var findDocuments = function(db, callback) {
